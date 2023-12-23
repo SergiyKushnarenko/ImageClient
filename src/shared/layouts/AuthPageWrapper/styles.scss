@@ -1,0 +1,23 @@
+@use '/src/styles/mixins.scss' as *;
+@use '/src/styles/variables.scss' as *;
+
+.auth-wrapper {
+    @include d-flex(row, center, center);
+    height: 100%;
+
+    &__card {
+        border: 2px solid $dark;
+        padding: 40px 80px;
+        border-radius: 12px;
+        background: $secondary-bg;
+
+        .auth-form {
+            @include d-flex(column);
+            gap: 12px;            
+        }
+    }
+
+    .auth-link {
+        text-align: center;
+    }
+}
