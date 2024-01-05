@@ -15,3 +15,8 @@ export type UserState = {
     user: User | null;
     isAuth: boolean;
 };
+
+export type GoogleLoginResponse = {
+   url: string;
+   sessionId: string;
+}

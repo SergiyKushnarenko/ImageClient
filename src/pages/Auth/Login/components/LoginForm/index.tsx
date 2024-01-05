@@ -3,7 +3,7 @@ import PasswordInput from '../../../../../shared/components/PasswordInput';
 import Input from '../../../../../shared/components/Input';
 import Button from '../../../../../shared/components/Button';
 import { useAppDispatch } from '../../../../../shared/hooks/useAppDispatch';
-import { login } from '../../../../../store/user-service/actions';
+import { googleLogin, login } from '../../../../../store/user-service/actions';
 import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../../../../../shared/hooks/useLoading';
 import { Route } from '../../../../../enums/routes.enum';
@@ -18,6 +18,13 @@ const LoginForm: FC = () => {
     email: '',
     password: '',
   });
+
+  const handleGoogleLogin = async () => {
+    startLoading(async () => {
+       const {url} = await dispatch(googleLogin()).unwrap();
+       window.location.href = url;
+    });
+  };
 
   const handleChangeFormInput = (e: ChangeEvent<HTMLInputElement>) => {
     setFormValues((prev) => ({
@@ -39,6 +46,7 @@ const LoginForm: FC = () => {
       <Input placeholder='Enter your email' label="Email" value={formValues.email} onChange={handleChangeFormInput} name="email" />
       <PasswordInput value={formValues.password} onChange={handleChangeFormInput} />
       <Button isLoading={isLoading} type="submit" text="Submit" />
+      <Button onClick={handleGoogleLogin} text="Login with Google" />
     </form>
   );
 };

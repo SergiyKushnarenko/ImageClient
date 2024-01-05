@@ -5,4 +5,6 @@ export enum ActionTypes {
   GetFavouriteImages = 'Favourites/GetAll',
   AddToFavourite = 'Favourites/AddToFavourite',
   RemoveFromFavourite = 'Favourites/RemoveFromFavourite',
+  GoogleLogin = 'User/GoogleLogin',
+  GoogleLoginSendCode = 'User/GoogleLoginSendCode'
 }

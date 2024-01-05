@@ -1,6 +1,8 @@
 export enum AuthApi {
   Login = 'BasicBearerAuth/Login',
   SignUp = 'BasicBearerAuth/Register',
+  GoogleLogin = 'GoogleOAuth/RedirectOnOAuthServer',
+  GoogleLoginSendCode = 'GoogleOAuth/Code'
 }
 
 export enum ImagesApi {

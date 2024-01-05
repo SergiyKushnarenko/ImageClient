@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import storageService from '../../utils/storage.service';
-import { login, signUp } from './actions';
+import { googleLoginSendCode, login, signUp } from './actions';
 import { UserState } from './types';
 
 const initialState: UserState = {
@@ -19,6 +19,10 @@ const userSlice = createSlice({
         state.isAuth = true;
       })
       .addCase(signUp.fulfilled, (state, { payload }) => {
+        state.user = payload;
+        state.isAuth = true;
+      })
+      .addCase(googleLoginSendCode.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isAuth = true;
       });
